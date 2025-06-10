@@ -16,6 +16,7 @@ return [
     'registration_success' => 'User Register Successfully',
     'registration_success_verify' => 'Registration Successfully, Please Verify with OTP',
     'login_success' => 'Login success!',
+    'logout_success' => 'Logout Successfull',
     'login_success_verify' => 'Login success! Please Verify Account with OTP',
     'otp_sent_success' => 'Verification Code Sent!',
     'otp_mail_subject' => 'Your 6-digit Smart Expense Verification Code',

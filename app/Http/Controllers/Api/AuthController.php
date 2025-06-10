@@ -73,9 +73,16 @@ class AuthController extends Controller
 
     }
 
+    // Logout
+    public function logout (Request $request):Response{
+        // logout
+        $request->user()->currentAccessToken()->delete();
+        return response (['message'=> __('app.logout_success')]);
+
+    }
+
     // OTP
     public function otp(Request $request): Response{
-
         // get user
         $user = auth()->user();
 

@@ -92,7 +92,6 @@ class AuthService {
     // Get  User by email
     public function getUserByEmail(string $email){
         return User::where('email', $email)->first();
-
     }
 
     // Reset Password
@@ -123,7 +122,5 @@ class AuthService {
         return $user;
 
     }
-
-
 }
 

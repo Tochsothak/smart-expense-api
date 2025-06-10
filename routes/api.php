@@ -14,6 +14,7 @@ Route::controller(AuthController::class)->group(function(){
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/otp', 'otp')->name('api.auth.otp');
         Route::post('/verify', 'verify')->name('api.auth.verify');
-
+        Route::post('/logout', 'logout')-> name('api.auth.logout');
     });
+
 });
