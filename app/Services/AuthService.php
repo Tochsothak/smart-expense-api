@@ -75,7 +75,7 @@ class AuthService {
         ])->first();
 
         if (!$otp){
-            abort(422, __('app.invalid_otp'));
+            abort(422, __('app.invalid_otp')); // Unprocessable entity Status code
         }
 
         // Update
