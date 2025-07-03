@@ -29,7 +29,7 @@ class AuthController extends Controller
        $user = $this->authService->register($request);
 
         // create access token
-        $token = $user->createToken('auth')->plainTextToken;
+        $token = $user->createToken('auth')->plainTextToken;  // 'auth' is a name or label of token
 
         // return
         return response([
@@ -38,7 +38,7 @@ class AuthController extends Controller
                 'user' => new UserResource($user),
                 'token' => $token
             ]
-        ],201);
+        ],201,); // 201 created
     }
 
     // Login
@@ -159,9 +159,6 @@ class AuthController extends Controller
         return response([
             'message' => __('app.password_reset_success'),
         ]);
-
-
-
     }
 
 }
