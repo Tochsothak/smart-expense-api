@@ -20,9 +20,16 @@ class Currency extends BaseModel
     ];
 
     public function getSampleAttribute():String{
-        $value = number_format(1000,$this->decimal_places,$this->decimal_separator,$this->thousand_separator);
+       return $this->format(1000);
+    }
 
-        return $this->symbol_position == 'after' ? $value . $this->symbol : $this->symbol . $value;
+    public function format($value):String{
+        $value = number_format($value, $this->decimal_places, $this->decimal_separator, $this->thousand_separator);
+        return ($this->symbol_position == 'after') 
+        ? ($value . ' ' . $this->symbol)
+        : ($this->symbol .' ' . $value);
+
+
     }
 
 

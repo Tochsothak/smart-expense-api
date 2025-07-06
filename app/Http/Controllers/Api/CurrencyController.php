@@ -40,7 +40,7 @@ class CurrencyController extends Controller
 
         //return
         return response ([
-            'message' => __('app.data_loading_success', ['data' => __('app.currencies')]),
+            'message' => __('app.data_load_success', ['data' => __('app.currencies')]),
             'results' => $results,
         ]);
     }
@@ -52,7 +52,7 @@ class CurrencyController extends Controller
 
         //return
         return response ([
-            'message' => __('app.data_loading_success',  ['data' => __('app.currency')]),
+            'message' => __('app.data_load_success',  ['data' => __('app.currency')]),
             'results' => [
                 'currency' => new CurrencyResource($currency)
             ],
