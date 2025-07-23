@@ -12,6 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'timezone' => 'Asia/Phnom_Penh',
 
     'registration_success' => 'User Register Successfully',
     'registration_success_verify' => 'Registration Successfully, Please Verify with OTP',
@@ -43,8 +44,13 @@ return [
     'account_types' => 'Account Types',
     'account_type' => 'Account type',
     'accounts' => 'Accounts',
-    'account' => 'Account'
+    'account' => 'Account',
 
+    'category' => 'Category',
+    'categories' => 'Categories',
+
+    'transaction' => 'Transaction',
+    'transactions' => 'Transactions'
 
 
 ];
