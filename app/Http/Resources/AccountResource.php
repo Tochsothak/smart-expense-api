@@ -25,6 +25,16 @@ class AccountResource extends JsonResource
             'current_balance_text' => $this->current_balance_text,
             'colour_code' => $this->colour_code,
             'active'=> $this->active,
+            'total_income' => $this->total_income,
+            'total_income_text' =>$this->total_income_text,
+            'total_expense' =>$this->total_expense,
+            'total_expense_text' =>$this->total_expense_text,
+            'transaction_count'=>$this->transaction_count,
+            'income_count'=>$this->income_count,
+            'expense_count'=>$this->expense_count,
+            'account_summary' => $this->getSummary(),
+            'balance_last_month' => $this->getBalanceAsOf('last_month'),
+
         ];
     }
 }

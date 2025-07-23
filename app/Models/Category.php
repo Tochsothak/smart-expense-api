@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class AccountType extends BaseModel
+class Category extends BaseModel
 {
     protected $fillable = [
+        'id',
         'name',
         'code',
         'description',
-        'active'
+        'colour_code',
+        'active',
     ];
 }

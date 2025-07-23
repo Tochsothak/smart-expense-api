@@ -14,13 +14,11 @@ class AccountService
 
     public function getAccountsByUser(User $user, object $request):Collection{
         $accounts = Account::where('user_id', $user->id)->orderBy('name');
-
         if ($request->search){
             $search  = $request->search;
             $accounts->where('name', 'LIKE', "%{$search}%");
         }
         return $accounts->get();
-
     }
 
     public function getAccountByUserUuid(User $user,String $uuid):Account{
@@ -93,7 +91,6 @@ class AccountService
 
     public function delete (Account $account): bool  {
         $account->delete();
-
         return true;
     }
 }

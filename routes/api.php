@@ -4,7 +4,9 @@
 use App\Http\Controllers\Api\AccountController;
 use App\Http\Controllers\Api\AccountTypeController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CurrencyController;
+use App\Http\Controllers\Api\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,5 +41,19 @@ Route::middleware('auth:sanctum')->controller(AccountController::class)->group(f
     Route::post('/account', 'store')->name('api.account.store');
     Route::patch('/account/{id}', 'update')->name('api.account.update');
     Route::delete('/account/{id}', 'delete')->name('api.account.delete');
+});
+
+Route::middleware('auth:sanctum')->controller(CategoryController::class)->group(function(){
+    Route::get('/category', 'index')->name('api.category.index');
+    Route::get('/category/{id}','get')->name('api.category.get');
+});
+
+Route::middleware('auth:sanctum')->controller(TransactionController::class)->group(function(){
+    Route::get('/transaction', 'index')->name('api.transaction.index');
+    Route::get('/transaction/{id}', 'get')->name('api.transaction.get');
+    Route::post('/transaction', 'store')->name('api.transaction.store');
+    Route::patch('/transaction/{id}', 'update')->name('api.transaction.update');
+    Route::delete('/transaction/{id}', 'delete')->name('api.transaction.delete');
+
 });
 

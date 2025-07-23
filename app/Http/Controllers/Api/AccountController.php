@@ -68,7 +68,7 @@ class AccountController extends Controller
             'message'=> __('app.data_create_success',
              ['data'=> __('app.account')]),
             'results' => [
-                'accounts' => new AccountResource($account)
+                'account' => new AccountResource($account)
             ]
         ]);
     }
@@ -89,7 +89,7 @@ class AccountController extends Controller
 
         $account = $this->accountService-> getAccountByUserUuid($user, $id);
 
-        $account = $this->accountService->update($account, $request);
+        $account = $this->accountService-> update($account, $request);
 
 
         return response([
@@ -99,7 +99,6 @@ class AccountController extends Controller
             ]
         ]);
     }
-
     public function delete (Request $request, $id) : Response {
         // get account
         $user = auth()->user();
