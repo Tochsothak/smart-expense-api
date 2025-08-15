@@ -45,6 +45,7 @@ class OtpMail extends Mailable
     {
         return new Content(
             markdown: 'mail.auth.otp',
+
         );
     }
 

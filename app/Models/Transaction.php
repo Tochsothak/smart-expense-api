@@ -61,4 +61,8 @@ class Transaction extends BaseModel
         return $this->belongsTo(Category::class, 'category_id');
     }
 
+      public function getFormattedAmountTextAttribute():string{
+       return $this->account->currency->format($this->amount);
+    }
+
 }

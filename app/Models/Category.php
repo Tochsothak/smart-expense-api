@@ -10,6 +10,7 @@ class Category extends BaseModel
         'code',
         'description',
         'colour_code',
+        'icon',
         'active',
     ];
 }

@@ -40,6 +40,7 @@ return [
     'data_update_error' => 'An error  occurred while updating :data!',
     'data_delete_success' => ':data Deleted Successfully!',
     'data_delete_error' => 'An error occurred while deleting :data !',
+    'data_restore_success' => ':data restore successfully',
 
     'account_types' => 'Account Types',
     'account_type' => 'Account type',
@@ -51,6 +52,7 @@ return [
 
     'transaction' => 'Transaction',
     'transactions' => 'Transactions'
+
 
 
 ];

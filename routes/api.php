@@ -1,6 +1,4 @@
 <?php
-
-
 use App\Http\Controllers\Api\AccountController;
 use App\Http\Controllers\Api\AccountTypeController;
 use App\Http\Controllers\Api\AuthController;
@@ -41,6 +39,7 @@ Route::middleware('auth:sanctum')->controller(AccountController::class)->group(f
     Route::post('/account', 'store')->name('api.account.store');
     Route::patch('/account/{id}', 'update')->name('api.account.update');
     Route::delete('/account/{id}', 'delete')->name('api.account.delete');
+    Route::post('/account/{id}', 'undoDelete')->name('api.account.undoDelete');
 });
 
 Route::middleware('auth:sanctum')->controller(CategoryController::class)->group(function(){

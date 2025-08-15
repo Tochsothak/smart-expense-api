@@ -1,4 +1,6 @@
 <x-mail::message>
+<div style="text-align: center;">
+</div>
 Hi {{ $user->name }}!
 
 Your 6-digit code is

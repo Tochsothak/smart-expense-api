@@ -31,10 +31,10 @@ class Currency extends BaseModel
     }
 
     // Format normal number to currency
-    public function format($value):String{
+     public function format($value):String{
         $value = number_format($value, $this->decimal_places, $this->decimal_separator, $this->thousand_separator);
         return ($this->symbol_position == 'after')
-        ? ($value . ' ' . $this->symbol)
+        ? ($value . ' ' . $this->symbol ?? 'USD')
         : ($this->symbol .' ' . $value);
     }
 }

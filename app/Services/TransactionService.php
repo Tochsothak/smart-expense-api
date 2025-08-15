@@ -44,9 +44,9 @@ class TransactionService{
             'amount' => $request->amount,
             'type' => $request->type,
             'notes' => $request->notes ?? null,
-            'transaction_date' => $request->transaction_date ?? Carbon::now(),
+            'transaction_date' => $request->transaction_date ?? Carbon::now() ,
             'active' => 1,
-            'reference_number' => $request->reference_number ?? null
+            'reference_number' => $request->reference_number ?? ''
         ]);
     }
 
