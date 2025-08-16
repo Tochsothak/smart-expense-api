@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use 
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -259,6 +259,11 @@ use
 
         Collect($categories)->each(function ($category){
             Category::updateOrCreate(
-
-    }
+                  [
+                    'code' => $category['code']
+                ],
+                $category
+            );
+    });
+}
 }
