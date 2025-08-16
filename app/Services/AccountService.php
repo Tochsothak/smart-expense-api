@@ -14,6 +14,7 @@ class AccountService
 
     public function getAccountsByUser(User $user, object $request):Collection{
         $accounts = Account::where(['user_id'=> $user->id, 'active' => 1])->orderBy('name');
+        $accounts = Account::where('user_id', $user->id)->orderBy('name');
         if ($request->search){
             $search  = $request->search;
             $accounts->where('name', 'LIKE', "%{$search}%");

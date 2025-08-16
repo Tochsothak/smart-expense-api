@@ -37,4 +37,7 @@ class Currency extends BaseModel
         ? ($value . ' ' . $this->symbol ?? 'USD')
         : ($this->symbol .' ' . $value);
     }
+
+    }
+
 }

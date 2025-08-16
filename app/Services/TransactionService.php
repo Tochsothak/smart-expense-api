@@ -47,6 +47,10 @@ class TransactionService{
             'transaction_date' => $request->transaction_date ?? Carbon::now() ,
             'active' => 1,
             'reference_number' => $request->reference_number ?? ''
+            'transaction_date' => $request->transaction_date ?? Carbon::now(),
+            'active' => 1,
+            'reference_number' => $request->reference_number ?? null
+
         ]);
     }
 

@@ -25,6 +25,9 @@ class TransactionResource extends JsonResource
         'type' => $this->type,
         'formatted_type' => $this->formatted_type,
         'transaction_date' => $this->transaction_date,
+        'type' => $this->type,
+        'formatted_type' => $this->formatted_type,
+        'transaction_date' => $this->transaction_date
         'reference_number' => $this->reference_number,
         'active' => $this->active,
         ];

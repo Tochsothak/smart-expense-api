@@ -33,26 +33,6 @@ class Transaction extends BaseModel
         return ucfirst($this->type);
     }
 
-    // Alternative accessor with custom formatting
-    // public function getTypeDisplayAttribute(){
-    //     return match($this->type){
-    //         'income' => 'Income',
-    //         'expense' => 'Expense',
-    //         default => ucfirst($this->type),
-    //     };
-    // }
-
-    // public static function getTypeOptions(){
-    //     return [
-    //         'income'=> 'Income',
-    //         'expense'=> 'Expense'
-    //     ];
-    // }
-
-    // public static function getFormattedType($type){
-    //     return self::getTypeOptions()[$type] ?? ucfirst($type);
-    // }
-
      public function account():BelongsTo{
         return $this->belongsTo(Account::class,'account_id');
     }

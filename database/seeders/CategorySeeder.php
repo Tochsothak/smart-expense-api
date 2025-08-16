@@ -5,15 +5,14 @@ namespace Database\Seeders;
 use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Collection;
-
-class CategorySeeder extends Seeder
+use 
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
+
      $categories = [
     [
         'name' => 'Salary & Wages',
@@ -260,10 +259,6 @@ class CategorySeeder extends Seeder
 
         Collect($categories)->each(function ($category){
             Category::updateOrCreate(
-                ['code'=>$category['code']],
-                $category,
-            );
-        });
 
     }
 }
