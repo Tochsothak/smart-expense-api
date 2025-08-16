@@ -21,10 +21,13 @@ class TransactionResource extends JsonResource
         'description' => $this->description,
         'notes'=> $this->notes,
         'amount' => $this->amount,
+        'formatted_amount_text' => $this->formatted_amount_text,
         'type' => $this->type,
         'formatted_type' => $this->formatted_type,
-        // 'type_display' => $this->type_display,
-        'transaction_date' => $this->transaction_date->format('Y-m-d H:i'),
+        'transaction_date' => $this->transaction_date,
+        'type' => $this->type,
+        'formatted_type' => $this->formatted_type,
+        'transaction_date' => $this->transaction_date
         'reference_number' => $this->reference_number,
         'active' => $this->active,
         ];

@@ -52,7 +52,7 @@ class AccountTypeSeeder extends Seeder
             ],
              [
                 'name' => 'Insurance Account',
-                'code' => 'Insurance-account',
+                'code' => 'insurance-account',
                 'description'=> 'Insurance Accounts',
                 'active' => 1,
             ],
@@ -70,7 +70,7 @@ class AccountTypeSeeder extends Seeder
             ],
         ];
         collect($types)->each(function ($type){
-            AccountType::firstOrCreate(
+            AccountType::updateOrCreate(
                 [
                     'code' => $type['code']
                 ],

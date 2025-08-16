@@ -13,6 +13,7 @@ class AccountService
 {
 
     public function getAccountsByUser(User $user, object $request):Collection{
+        $accounts = Account::where(['user_id'=> $user->id, 'active' => 1])->orderBy('name');
         $accounts = Account::where('user_id', $user->id)->orderBy('name');
         if ($request->search){
             $search  = $request->search;
@@ -25,14 +26,13 @@ class AccountService
         $account = Account::where([
             'uuid' => $uuid,
             'user_id' => $user->id,
+            'active' => 1
         ])->first();
 
         if (!$account){
             abort(404,__('app.data_not_found',['data' => __('app.account')]));
         }
         return $account;
-
-
     }
     public function create (User $user, object $request): Account{
 
@@ -90,7 +90,30 @@ class AccountService
     }
 
     public function delete (Account $account): bool  {
-        $account->delete();
+        $account->active = 0;
+        $account->updated_at = Carbon::now();
+        $account->update();
         return true;
+    }
+
+     public function getDeletedAccountByUserUuid(User $user,String $uuid):Account{
+        $account = Account::where([
+            'uuid' => $uuid,
+            'user_id' => $user->id,
+            'active' => 0
+        ])->first();
+
+        if (!$account){
+            abort(404,__('app.data_not_found',['data' => __('app.account')]));
+        }
+        return $account;
+    }
+
+    public function undoDelete(Account $account): bool{
+        $account->active = 1;
+        $account->updated_at = Carbon::now();
+        $account->update();
+        return true;
+
     }
 }

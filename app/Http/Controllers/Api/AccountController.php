@@ -116,4 +116,21 @@ class AccountController extends Controller
         ]);
     }
 
+    public function undoDelete (Request $request, $id) : Response {
+        // get account
+        $user = auth()->user();
+        $account = $this->accountService->getDeletedAccountByUserUuid($user, $id);
+
+        $result = $this->accountService->undoDelete($account);
+
+        if (!$result){
+            abort(500, __('app.data_delete_error', ['data' => __('app.account')]));
+        }
+
+        return response ([
+            'message' => __('app.data_restore_success',['data' => __('app.account')]),
+
+        ]);
+    }
+
 }
