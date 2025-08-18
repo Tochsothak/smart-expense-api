@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Carbon;
 
 class TransactionResource extends JsonResource
 {
@@ -24,7 +25,9 @@ class TransactionResource extends JsonResource
         'formatted_amount_text' => $this->formatted_amount_text,
         'type' => $this->type,
         'formatted_type' => $this->formatted_type,
-        'transaction_date' => $this->transaction_date,
+        'transaction_date' => $this->transaction_date->format('Y-m-d H:i:s'),
+        'created_at' => $this->created_at->setTimezone('Asia/Phnom_Penh')->format('Y-m-d H:i:s'),
+        'updated_at' => $this->updated_at->setTimezone('Asia/Phnom_Penh')->format('Y-m-d H:i:s'),
         'reference_number' => $this->reference_number,
         'active' => $this->active,
         ];

@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Transaction;
 use App\Models\User;
 use Carbon\Carbon;
+use DateTime;
+use DateTimeZone;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
@@ -44,7 +46,7 @@ class TransactionService{
             'amount' => $request->amount,
             'type' => $request->type,
             'notes' => $request->notes ?? null,
-            'transaction_date' => $request->transaction_date ?? Carbon::now() ,
+            'transaction_date' => $request->transaction_date ?? Carbon::now()->setTimezone('Asia/Phnom_Penh'),
             'active' => 1,
             'reference_number' => $request->reference_number ?? '',
         ]);
@@ -77,7 +79,7 @@ class TransactionService{
         $transaction->notes = $request->notes;
         $transaction->amount = $request->amount;
         $transaction->type = $request->type;
-        $transaction->transaction_date = $request->transaction_date ?? Carbon::now();
+        $transaction->transaction_date = $request->transaction_date ?? Carbon::now()->setTimezone('Asia/Phnom_Penh');
         $transaction->reference_number = $request->transaction->reference_number ?? null;
         $transaction->active = $request->active;
         $transaction->updated_at = Carbon::now();

@@ -52,8 +52,4 @@ return [
 
     'transaction' => 'Transaction',
     'transactions' => 'Transactions'
-
-
-
-
 ];

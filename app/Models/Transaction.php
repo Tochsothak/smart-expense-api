@@ -24,7 +24,9 @@ class Transaction extends BaseModel
     protected function casts ():array {
         return [
             'amount' => 'double',
-            'transaction_date' => 'datetime'
+            'transaction_date' => 'datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime'
         ];
     }
 

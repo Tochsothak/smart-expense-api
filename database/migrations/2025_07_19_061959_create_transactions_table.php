@@ -21,7 +21,7 @@ return new class extends Migration
             $table->decimal('amount', 18, 2);
             $table->string('description');
             $table->string('notes')->nullable();
-            $table->datetime('transaction_date');
+            $table->timestamp('transaction_date')->nullable();
             $table->string('reference_number')->nullable();
             $table->integer('active');
             $table->timestamps();
