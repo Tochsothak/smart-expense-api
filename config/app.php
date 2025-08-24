@@ -2,6 +2,9 @@
 
 return [
 
+    'base_currency' => env('BASE_CURRENCY', 'USD'),
+    'exchange_rate_cache_minutes' => env('EXCHANGE_RATE_CACHE_MINUTES', 60),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

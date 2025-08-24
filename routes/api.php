@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CurrencyController;
 use App\Http\Controllers\Api\TransactionController;
+use App\Http\Controllers\Api\ExchangeRateModelController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -68,5 +69,10 @@ Route::middleware('auth:sanctum')->controller(TransactionController::class)->gro
     Route::patch('/transaction/{id}', 'update')->name('api.transaction.update');
     Route::delete('/transaction/{id}', 'delete')->name('api.transaction.delete');
 
+});
+
+Route::middleware('auth:sanctum')->controller(ExchangeRateModelController::class)->group(function(){
+    Route::get('/rate', 'index')->name('api.rate.get');
+    Route::post('/rate', 'store')->name('api.rate.store');
 });
 

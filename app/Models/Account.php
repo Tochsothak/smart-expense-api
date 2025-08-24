@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Account extends BaseModel
 {
-    use SoftDeletes;
+    // use SoftDeletes;
     protected $fillable = [
         'user_id',
         'account_type_id',
@@ -107,7 +107,7 @@ class Account extends BaseModel
         if ($this->currency->code === $targetCurrencyCode){
             return $initialBalance;
         }
-        return app(CurrencyConversionService::class)
+        return app(CurrencyConversionservice::class)
                 ->convert($initialBalance, $this->currency->code, $targetCurrencyCode);
     }
 

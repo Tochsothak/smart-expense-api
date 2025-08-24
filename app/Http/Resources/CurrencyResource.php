@@ -24,6 +24,7 @@ class CurrencyResource extends JsonResource
             'decimal_separator' => $this->decimal_separator,
             'decimal_places' =>$this->decimal_places,
             'sample' => $this->sample,
+            'active' => $this->active
         ];
     }
 }

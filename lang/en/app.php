@@ -51,5 +51,7 @@ return [
     'categories' => 'Categories',
 
     'transaction' => 'Transaction',
-    'transactions' => 'Transactions'
+    'transactions' => 'Transactions',
+
+    'exchange_rate' => 'Exchange rate',
 ];
