@@ -85,7 +85,7 @@ class CurrencyConversionService
         // Direct rate
         $exchangeRate = ExchangeRateModel::where('from_currency', $fromCurrency)
             ->where('to_currency', $toCurrency)
-            ->where('active', true)
+            ->where('active', 1)
             ->orderBy('updated_at', 'desc')
             ->first();
 
@@ -96,7 +96,7 @@ class CurrencyConversionService
         // Try inverse rate
         $inverseRate = ExchangeRateModel::where('from_currency', $toCurrency)
             ->where('to_currency', $fromCurrency)
-            ->where('active', true)
+            ->where('active', 1)
             ->orderBy('updated_at', 'desc')
             ->first();
 
@@ -113,7 +113,7 @@ class CurrencyConversionService
     protected function getExchangeRateFromAPI(string $fromCurrency, string $toCurrency): ?float
     {
         try {
-            // Example using a free API (you can replace with your preferred service)
+           // Free Exchange rats api service
             $response = Http::timeout(10)->get("https://v6.exchangerate-api.com/v6/5321fa13d77eb52991aab21a/latest/{$fromCurrency}");
 
             if ($response->successful()) {
@@ -157,7 +157,7 @@ class CurrencyConversionService
      */
     public function getSupportedCurrencies(): array
     {
-        return Currency::where('active', true)
+        return Currency::where('active', 1)
             ->orderBy('code')
             ->pluck('name', 'code')
             ->toArray();

@@ -187,16 +187,16 @@ class Account extends BaseModel
     }
 
    // Get Account Summary
-    public function getSummary():array {
-        return [
-            'initial_balance' =>  $this->initial_balance,
-            'total_income' => $this->total_income,
-            'total_expense'=> $this->total_expense,
-            'current_balance'=> $this->current_balance,
-            'transaction_count'=>$this->transaction_count,
-            'income_count'=>$this->income_count,
-            'expense_count'=>$this->expense_count,
-        ];
-    }
+    // public function getSummary():array {
+    //     return [
+    //         'initial_balance' =>  $this->initial_balance,
+    //         'total_income' => $this->total_income,
+    //         'total_expense'=> $this->total_expense,
+    //         'current_balance'=> $this->current_balance,
+    //         'transaction_count'=>$this->transaction_count,
+    //         'income_count'=>$this->income_count,
+    //         'expense_count'=>$this->expense_count,
+    //     ];
+    // }
 
 }

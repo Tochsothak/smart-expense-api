@@ -23,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_image',
     ];
 
     /**
@@ -46,5 +47,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+     // Add accessor for profile image URL
+    public function getProfileImageUrlAttribute()
+    {
+        if ($this->profile_image) {
+            return url('storage/' . $this->profile_image);
+        }
+        return null;
     }
 }

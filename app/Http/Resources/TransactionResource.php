@@ -2,8 +2,10 @@
 
 namespace App\Http\Resources;
 
+use App\Models\TransactionAttachment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Mail\Attachment;
 use Illuminate\Support\Carbon;
 
 class TransactionResource extends JsonResource
@@ -19,6 +21,7 @@ class TransactionResource extends JsonResource
         'id' => $this->uuid,
         'account' => new AccountResource($this->account),
         'category' => new CategoryResource($this->category),
+        'attachments'=> AttachmentResource::collection($this->attachments),
         'description' => $this->description,
         'notes'=> $this->notes,
         'amount' => $this->amount,

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Transaction extends BaseModel
 {
@@ -46,5 +47,26 @@ class Transaction extends BaseModel
       public function getFormattedAmountTextAttribute():string{
        return $this->account->currency->format($this->amount);
     }
+
+    // Transaction Attachments
+   public function attachments()
+{
+    return $this->hasMany(TransactionAttachment::class);
+}
+
+/**
+ * Override toArray to include attachments
+ */
+public function toArray()
+{
+    $array = parent::toArray();
+
+    // Include attachments if loaded
+    if ($this->relationLoaded('attachments')) {
+        $array['attachments'] = $this->attachments->toArray();
+    }
+
+    return $array;
+}
 
 }

@@ -63,16 +63,34 @@ Route::middleware('auth:sanctum')->controller(CategoryController::class)->group(
 });
 
 Route::middleware('auth:sanctum')->controller(TransactionController::class)->group(function(){
-    Route::get('/transaction', 'index')->name('api.transaction.index');
-    Route::get('/transaction/{id}', 'get')->name('api.transaction.get');
-    Route::post('/transaction', 'store')->name('api.transaction.store');
-    Route::patch('/transaction/{id}', 'update')->name('api.transaction.update');
-    Route::delete('/transaction/{id}', 'delete')->name('api.transaction.delete');
+       // Transaction routes
+    Route::controller(TransactionController::class)->group(function(){
+        Route::get('/transactions', 'index')->name('api.transaction.index');
+        Route::get('/transactions/{id}', 'get')->name('api.transaction.get');
+        Route::post('/transactions', 'store')->name('api.transaction.store');
+        Route::patch('/transactions/{id}', 'update')->name('api.transaction.update');
+        Route::delete('/transactions/{id}', 'delete')->name('api.transaction.delete');
 
+ Route::get('/transactions/{transactionId}/attachments/{attachmentId}/download', 'downloadAttachment')
+            ->name('api.transaction.attachment.download');
+        Route::delete('/transactions/{transactionId}/attachments/{attachmentId}', 'deleteAttachment')
+            ->name('api.transaction.attachment.delete');
+    });
 });
 
 Route::middleware('auth:sanctum')->controller(ExchangeRateModelController::class)->group(function(){
     Route::get('/rate', 'index')->name('api.rate.get');
     Route::post('/rate', 'store')->name('api.rate.store');
+});
+
+Route::middleware('auth:sanctum')->group(function(){
+    // Profile routes
+    Route::controller(App\Http\Controllers\Api\ProfileController::class)->group(function(){
+        Route::get('/profile', 'show')->name('api.profile.show');
+        Route::post('/profile', 'update')->name('api.profile.update');
+        Route::post('/profile/image', 'updateProfileImage')->name('api.profile.image.update');
+        Route::delete('/profile/image', 'deleteProfileImage')->name('api.profile.image.delete');
+    });
+
 });
 

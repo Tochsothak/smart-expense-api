@@ -32,8 +32,6 @@ class AccountResource extends JsonResource
             'transaction_count'=>$this->transaction_count,
             'income_count'=>$this->income_count,
             'expense_count'=>$this->expense_count,
-            'account_summary' => $this->getSummary(),
-            'balance_last_month' => $this->getBalanceAsOf('last_month'),
 
         ];
     }
